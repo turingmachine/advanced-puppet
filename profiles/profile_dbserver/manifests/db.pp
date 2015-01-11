@@ -3,6 +3,7 @@ define profile_dbserver::db (
   $username,
   $password,
 ) {
+  include ::profile_dbserver
   ::mysql::db { $name:
     user     => $username,
     password => $password,

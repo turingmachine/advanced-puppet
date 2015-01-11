@@ -6,6 +6,10 @@ Vagrant.configure("2") do |config|
     config.vm.network :forwarded_port, host: 8888, guest: 80
     puppet.manifests_path = "manifests"
     puppet.module_path = ['roles','profiles','modules']
+    puppet.hiera_config_path = "hiera.yaml"
+    puppet.facter = {
+      'role' => 'wordpress',
+    }
     puppet.options = "--verbose"
   end
 end
