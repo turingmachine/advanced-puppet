@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.provision "shell", 
-    inline: 'which puppet-lint &&' + 
-      'ls -d /vagrant/{manifests,roles,profiles} | xargs -n 1 puppet-lint'
+    inline: 'ls -d /vagrant/{manifests,roles,profiles} |' +
+            'xargs -n 1 puppet-lint; true'
   config.vm.provision "puppet" do |puppet|
     config.vm.box      = 'centos'
     config.vm.box_url  = 'http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box'
